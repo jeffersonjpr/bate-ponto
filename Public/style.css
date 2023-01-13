@@ -1,0 +1,71 @@
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-color: #f1f1f1;
+}
+
+h1 {
+    margin-bottom: 20px;
+    font-family: Arial;
+    color: #14396a;
+    font-size: 50px;
+    font-weight: bold;
+}
+
+input {
+    margin-bottom: 20px;
+    border-radius: 6px;
+    color: #14396a;
+    font-family: Arial;
+    font-size: 15px;
+    font-weight: bold;
+    padding: 10px 10px;
+}
+
+select {
+    margin-bottom: 20px;
+    border-radius: 6px;
+    border: 2px solid #3866a3;
+    display: inline-block;
+    color: #14396a;
+    font-family: Arial;
+    font-size: 15px;
+    font-weight: bold;
+    padding: 10px 50px;
+    text-decoration: none;
+
+}
+
+.myButton {
+    background: linear-gradient(to bottom, #63b8ee 5%, #468ccf 100%);
+    background-color: #63b8ee;
+    border-radius: 6px;
+    border: 1px solid #3866a3;
+    display: inline-block;
+    cursor: pointer;
+    color: #14396a;
+    font-family: Arial;
+    font-size: 15px;
+    font-weight: bold;
+    padding: 10px 50px;
+    text-decoration: none;
+}
+
+.myButton:hover {
+    background: linear-gradient(to bottom, #468ccf 5%, #63b8ee 100%);
+    background-color: #468ccf;
+}
+
+.myButton:active {
+    position: relative;
+    top: 1px;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}

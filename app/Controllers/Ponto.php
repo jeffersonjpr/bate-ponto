@@ -29,7 +29,11 @@ class Ponto
         $sql = "INSERT INTO ponto (id_funcionario, data_ponto, tipo) VALUES (:id_funcionario, :data_ponto, :tipo)";
         $funcionario = Funcionario::getByRegistro($data['registro']);
         if (!$funcionario) {
-            return self::returnError($response, "Funcionário não encontrado");
+            //return 404
+            $response->getBody()->write(json_encode("{'message': 'Funcionário não encontrado'}"));
+            return $response
+                ->withHeader('content-type', 'application/json')
+                ->withStatus(404);
         }
 
         try {
