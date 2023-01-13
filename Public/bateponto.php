@@ -27,24 +27,23 @@
                 registro: registro,
                 tipo: tipo
             };
+
             let xhr = new XMLHttpRequest();
-
             xhr.open('POST', url, true);
-            xhr.setRequestHeader('Content-Type', 'application/json');
-            xhr.setRequestHeader('Accept', 'application/json');
             xhr.dataType = 'json';
-            xhr.send(JSON.stringify(data));
 
-            xhr.addEventListener('readystatechange', function() {
-                if (xhr.readyState === 4) {
-                    if (xhr.status === 201) {
-                        alert('Ponto registrado com sucesso');
-                    } else {
-                        alert('Erro ao registrar ponto');
-                        console.log(xhr.responseText);
-                    }
+            xhr.setRequestHeader('Content-type', "application/json;charset=UTF-8");
+
+
+
+
+            xhr.onreadystatechange = function() {
+                if (xhr.readyState == 4 && xhr.status == 201) {
+                    console.log(xhr.responseText);
                 }
-            });
+            }
+            console.log(JSON.stringify(data));
+            xhr.send(JSON.stringify(data));
         });
     </script>
 </body>

@@ -90,6 +90,8 @@ class Funcionario
     static function getByRegistro($registro){
         $sql = "SELECT * FROM funcionario WHERE registro = :registro";
 
+        $registro = (int) $registro;
+
         try {
             $db = new Db();
             $conn = $db->connect();

@@ -25,8 +25,8 @@ class Ponto
     static function create(Request $request, Response $response)
     {
         $data = $request->getParsedBody();
+        var_dump($data);
         $sql = "INSERT INTO ponto (id_funcionario, data_ponto, tipo) VALUES (:id_funcionario, :data_ponto, :tipo)";
-        
         $funcionario = Funcionario::getByRegistro($data['registro']);
         if (!$funcionario) {
             return self::returnError($response, "Funcionário não encontrado");

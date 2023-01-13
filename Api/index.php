@@ -8,6 +8,8 @@ use Psr\Http\Message\ServerRequestInterface as Request;
 use Selective\BasePath\BasePathMiddleware;
 use Slim\Factory\AppFactory;
 
+use Slim\Exception\HttpNotFoundException;
+
 
 require_once __DIR__ . '/../vendor/autoload.php';
 
@@ -18,6 +20,17 @@ $app->add(new BasePathMiddleware($app));
 $app->addBodyParsingMiddleware();
 $app->addErrorMiddleware(true, true, true);
 
+$app->options('/{routes:.+}', function ($request, $response, $args) {
+    return $response;
+});
+
+$app->add(function ($request, $handler) {
+    $response = $handler->handle($request);
+    return $response
+        ->withHeader('Access-Control-Allow-Origin', '*')
+        ->withHeader('Access-Control-Allow-Headers', 'X-Requested-With, Content-Type, Accept, Origin, Authorization')
+        ->withHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, PATCH, OPTIONS');
+});
 
 
 $app->get('/funcionario', function (Request $request, Response $response) {
@@ -54,6 +67,10 @@ $app->delete('/ponto/{id}', function (Request $request, Response $response, $arg
 
 $app->get('/ponto', function (Request $request, Response $response) {
     return Ponto::getAll($response);
+});
+
+$app->map(['GET', 'POST', 'PUT', 'DELETE', 'PATCH'], '/{routes:.+}', function ($request, $response) {
+    throw new HttpNotFoundException($request);
 });
 
 $app->run();
