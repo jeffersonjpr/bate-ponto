@@ -4,26 +4,29 @@
 
 
 <head>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../style/style.css">
     <title>Bater ponto</title>
 </head>
 
 
 <body>
-    <!-- <?php include_once 'header.html'; ?> -->
+    <?php include_once 'navbar.html'; ?>
 
 
-    <h1>Bater ponto</h1>
-    <!-- send post without reloading the page and show notification-->
-    <input type="text" id="registro" placeholder="0000" />
-    <select name="tipo" id="tipo">
-        <option value="entrada">Entrada</option>
-        <option value="pausa">Pausa</option>
-        <option value="retorno">Retorno</option>
-        <option value="saida">Saída</option>
-    </select>
+    <main>
 
-    <button id="req" class="myButton">Bater ponto</button>
+    <div class="center">
+        <h1>Bater ponto</h1>
+        <input type="text" id="registro" placeholder="0000" />
+        <select name="tipo" id="tipo">
+            <option value="entrada">Entrada</option>
+            <option value="pausa">Pausa</option>
+            <option value="retorno">Retorno</option>
+            <option value="saida">Saída</option>
+        </select>  
+        <br>
+        <button id="req" class="myButton">Bater ponto</button>
+    </div>
 
     <form action="" enctype="application/x-www-form-urlencoded"></form>
 
@@ -50,6 +53,9 @@
             xhr.onload = function() {
                 if (xhr.status == 201) {
                     alert('Ponto registrado com sucesso');
+                    //show message
+                    document.body.innerHTML +=
+                        '<div class="alert alert-success" role="alert"><p style="color:green">Ponto registrado com sucesso</p></div>';
                 } else if (xhr.status == 404) {
                     alert('Funcionário não encontrado');
                 } else {
@@ -58,6 +64,7 @@
             }
         });
     </script>
+    </main>
 </body>
 
 </html>

@@ -107,17 +107,17 @@ class Funcionario
         }
     }
 
-    static function update (Request $request, Response $response, $id)
+    static function update (Request $request, Response $response, $oldregistro)
     {
         $data = $request->getParsedBody();
 
-        $sql = "UPDATE funcionario SET nome = :nome, registro = :registro WHERE id = :id";
+        $sql = "UPDATE funcionario SET nome = :nome, registro = :registro WHERE registro = :oldregistro";
 
         try {
             $db = new Db();
             $conn = $db->connect();
             $stmt = $conn->prepare($sql);
-            $stmt->bindParam(':id', $id);
+            $stmt->bindParam(':oldregistro', $oldregistro);
             $stmt->bindParam(':nome', $data['nome']);
             $stmt->bindParam(':registro', $data['registro']);
             $result = $stmt->execute();
@@ -132,15 +132,15 @@ class Funcionario
         }
     }
 
-    static function delete(Response $response, $id)
+    static function delete(Response $response, $registro)
     {
-        $sql = "DELETE FROM funcionario WHERE id = :id";
+        $sql = "DELETE FROM funcionario WHERE registro = :registro";
 
         try {
             $db = new Db();
             $conn = $db->connect();
             $stmt = $conn->prepare($sql);
-            $stmt->bindParam(':id', $id);
+            $stmt->bindParam(':registro', $registro);
             $result = $stmt->execute();
             $db = null;
 

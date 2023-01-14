@@ -97,4 +97,24 @@ class Ponto
             return self::returnError($response, $e->getMessage());
         }
     }
+
+    static function getLiquidas(Response $response)
+    {
+        $sql = "SELECT * FROM dias_trabalhados_horas_liquidas";
+
+        try {
+            $db = new Db();
+            $conn = $db->connect();
+            $stmt = $conn->query($sql);
+            $customers = $stmt->fetchAll(\PDO::FETCH_OBJ);
+            $db = null;
+
+            $response->getBody()->write(json_encode($customers));
+            return $response
+                ->withHeader('content-type', 'application/json')
+                ->withStatus(200);
+        } catch (\PDOException $e) {
+            return self::returnError($response, $e->getMessage());
+        }
+    }
 }

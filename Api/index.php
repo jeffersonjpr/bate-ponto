@@ -51,9 +51,9 @@ $app->put('/funcionario/{id}', function (Request $request, Response $response, $
     return Funcionario::update($request, $response, $id);
 });
 
-$app->delete('/funcionario/{id}', function (Request $request, Response $response, $args) {
-    $id = $args['id'];
-    return Funcionario::delete($response, $id);
+$app->delete('/funcionario/{registro}', function (Request $request, Response $response, $args) {
+    $registro = $args['registro'];
+    return Funcionario::delete($response, $registro);
 });
 
 $app->post('/ponto', function (Request $request, Response $response) {
@@ -67,6 +67,10 @@ $app->delete('/ponto/{id}', function (Request $request, Response $response, $arg
 
 $app->get('/ponto', function (Request $request, Response $response) {
     return Ponto::getAll($response);
+});
+
+$app->get('/ponto/liquidas', function (Request $request, Response $response) {
+    return Ponto::getLiquidas($response);
 });
 
 $app->map(['GET', 'POST', 'PUT', 'DELETE', 'PATCH'], '/{routes:.+}', function ($request, $response) {

@@ -1,0 +1,164 @@
+header {
+    display: flex;
+    align-items: center;
+
+    /* Remove the next line if you want the span to appear next to the h1 */
+    justify-content: space-between;
+
+    border-bottom: 1px solid #000;
+    padding: 10px 30px;
+    background-color: #cfcfcf;
+}
+
+body {
+    background-color: #f1f1f1;
+}
+
+h1 {
+    margin-bottom: 20px;
+    font-family: Arial;
+    color: #14396a;
+    font-size: 50px;
+    font-weight: bold;
+}
+
+input {
+    margin-bottom: 20px;
+    border-radius: 6px;
+    color: #14396a;
+    font-family: Arial;
+    font-size: 15px;
+    font-weight: bold;
+    padding: 10px 10px;
+}
+
+select {
+    margin-bottom: 20px;
+    border-radius: 6px;
+    border: 2px solid #3866a3;
+    display: inline-block;
+    color: #14396a;
+    font-family: Arial;
+    font-size: 15px;
+    font-weight: bold;
+    padding: 10px 50px;
+    text-decoration: none;
+
+}
+
+.myButton {
+    background: linear-gradient(to bottom, #63b8ee 5%, #468ccf 100%);
+    background-color: #63b8ee;
+    border-radius: 6px;
+    border: 1px solid #3866a3;
+    display: inline-block;
+    cursor: pointer;
+    color: #14396a;
+    font-family: Arial;
+    font-size: 15px;
+    font-weight: bold;
+    padding: 10px 50px;
+    text-decoration: none;
+}
+
+.myButton:hover {
+    background: linear-gradient(to bottom, #468ccf 5%, #63b8ee 100%);
+    background-color: #468ccf;
+}
+
+.myButton:active {
+    position: relative;
+    top: 1px;
+}
+
+
+.center {
+    text-align: center;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-color: #f1f1f1;
+}
+
+.centertb {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.navbar {
+    overflow: hidden;
+    background-color: #333;
+}
+
+.navbar a {
+    float: left;
+    font-size: 16px;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+.dropdown {
+    float: left;
+    overflow: hidden;
+}
+
+.dropdown .dropbtn {
+    font-size: 16px;
+    border: none;
+    outline: none;
+    color: white;
+    padding: 14px 16px;
+    background-color: inherit;
+    font-family: inherit;
+    margin: 0;
+}
+
+.navbar a:hover,
+.dropdown:hover .dropbtn {
+    background-color: red;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    float: none;
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+}
+
+.dropdown-content a:hover {
+    background-color: #ddd;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+table td {
+    width: 10em;
+}
+table th:first-child{
+    text-align: start;
+}
+
+table td:nth-child(1) {
+    text-align: start;
+}
